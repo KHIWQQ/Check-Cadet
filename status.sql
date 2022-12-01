@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 01:53 AM
+-- Generation Time: Dec 01, 2022 at 03:40 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -24,34 +24,46 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cadet`
+-- Table structure for table `status`
 --
 
-CREATE TABLE `cadet` (
-  `id` int(5) NOT NULL,
-  `uname` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `lname` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `stay` int(2) NOT NULL,
-  `out` int(2) NOT NULL
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `uname` varchar(255) DEFAULT NULL,
+  `stay` int(11) DEFAULT NULL,
+  `outc` int(11) DEFAULT NULL,
+  `con` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cadet`
+-- Dumping data for table `status`
 --
 
-INSERT INTO `cadet` (`id`, `uname`, `lname`, `stay`, `out`) VALUES
-(1, 'A', 'B', 1, 0),
-(2, 'B', 'C', 0, 0);
+INSERT INTO `status` (`id`, `lname`, `uname`, `stay`, `outc`, `con`) VALUES
+(1, 'A', 'A', 0, 1, 1),
+(2, 'dee', 'dek', 1, 0, 2),
+(3, '\nB', 'B	', 1, 0, 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `cadet`
+-- Indexes for table `status`
 --
-ALTER TABLE `cadet`
+ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
