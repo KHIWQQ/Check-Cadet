@@ -80,9 +80,9 @@ class Ui_MainWindow(object):
         self.com1_all = QtWidgets.QLineEdit(self.layoutWidget)
         self.com1_all.setObjectName("com1_all")
         self.gridLayout.addWidget(self.com1_all, 0, 1, 1, 1)
-        self.com2_out = QtWidgets.QLineEdit(self.layoutWidget)
-        self.com2_out.setObjectName("com2_out")
-        self.gridLayout.addWidget(self.com2_out, 2, 1, 1, 1)
+        self.com1_out = QtWidgets.QLineEdit(self.layoutWidget)
+        self.com1_out.setObjectName("com1_out")
+        self.gridLayout.addWidget(self.com1_out, 2, 1, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.layoutWidget)
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
@@ -116,9 +116,9 @@ class Ui_MainWindow(object):
         self.com2_all = QtWidgets.QLineEdit(self.layoutWidget)
         self.com2_all.setObjectName("com2_all")
         self.gridLayout_2.addWidget(self.com2_all, 0, 1, 1, 1)
-        self.com2_out_2 = QtWidgets.QLineEdit(self.layoutWidget)
-        self.com2_out_2.setObjectName("com2_out_2")
-        self.gridLayout_2.addWidget(self.com2_out_2, 2, 1, 1, 1)
+        self.com2_out = QtWidgets.QLineEdit(self.layoutWidget)
+        self.com2_out.setObjectName("com2_out")
+        self.gridLayout_2.addWidget(self.com2_out, 2, 1, 1, 1)
         self.label_9 = QtWidgets.QLabel(self.layoutWidget)
         self.label_9.setObjectName("label_9")
         self.gridLayout_2.addWidget(self.label_9, 2, 0, 1, 1)
@@ -227,7 +227,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Check_Cadet"))
         self.label_26.setText(_translate("MainWindow", "กองพันที่ 1"))
         self.in_lname.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                          "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -290,20 +290,28 @@ class Ui_MainWindow(object):
         self.label_22.setText(_translate("MainWindow", "กองร้อย"))
 
         # Insert
-        # self.pushButton.clicked.connect(self.insertdata)
         self.pushButton.clicked.connect(self.dumpall)
 
-
-
         # UPDATE
-        # self.pushButton.clicked.connect(self.backschool)
         self.pushButton_2.clicked.connect(self.outschool)
 
-        # self.com1_all.setText(self.com1all)
+        # Show data Company 1
+        self.com1_all.setPlaceholderText(com1all())
+        self.com1_in.setPlaceholderText(com1stay())
+        self.com1_out.setPlaceholderText(com1out())
+        self.com1_remain.setPlaceholderText(com1remain())
 
+        # Show data Company 2
+        self.com2_all.setPlaceholderText(com2all())
+        self.com2_in.setPlaceholderText(com2stay())
+        self.com2_out.setPlaceholderText(com2out())
+        self.com2_remain.setPlaceholderText(com2remain())
 
-
-
+        # Show data Company 3
+        self.com3_all.setPlaceholderText(com3all())
+        self.com3_in.setPlaceholderText(com3stay())
+        self.com3_out.setPlaceholderText(com3out())
+        self.com3_remain.setPlaceholderText(com3remain())
 
 
 # .............................................................
@@ -311,8 +319,10 @@ class Ui_MainWindow(object):
 # .............................................................
 # .............................................................
 # ...........................................................
-#### ----- Function GUI && Database
+# ----- Function GUI && Database
+
 # Insert Done
+
     def insertdata(self):
         print("Hello")
         uname = self.in_uname.toPlainText()
@@ -326,7 +336,24 @@ class Ui_MainWindow(object):
         uname = self.in_uname.toPlainText()
         lname = self.in_lname.toPlainText()
         com = self.in_com.toPlainText()
-        dump(uname,lname,com)
+        dump(uname, lname, com)
+        # Show data Company 1
+        self.com1_all.setPlaceholderText(com1all())
+        self.com1_in.setPlaceholderText(com1stay())
+        self.com1_out.setPlaceholderText(com1out())
+        self.com1_remain.setPlaceholderText(com1remain())
+
+        # Show data Company 2
+        self.com2_all.setPlaceholderText(com2all())
+        self.com2_in.setPlaceholderText(com2stay())
+        self.com2_out.setPlaceholderText(com2out())
+        self.com2_remain.setPlaceholderText(com2remain())
+
+        # Show data Company 3
+        self.com3_all.setPlaceholderText(com3all())
+        self.com3_in.setPlaceholderText(com3stay())
+        self.com3_out.setPlaceholderText(com3out())
+        self.com3_remain.setPlaceholderText(com3remain())
 
     def backschool(self):
         print("into")
@@ -343,10 +370,26 @@ class Ui_MainWindow(object):
         com = self.out_com.toPlainText()
         print(uname+""+lname+com)
         outbatt(lname)
+        # Show data Company 1
+        self.com1_all.setPlaceholderText(com1all())
+        self.com1_in.setPlaceholderText(com1stay())
+        self.com1_out.setPlaceholderText(com1out())
+        self.com1_remain.setPlaceholderText(com1remain())
+
+        # Show data Company 2
+        self.com2_all.setPlaceholderText(com2all())
+        self.com2_in.setPlaceholderText(com2stay())
+        self.com2_out.setPlaceholderText(com2out())
+        self.com2_remain.setPlaceholderText(com2remain())
+
+        # Show data Company 3
+        self.com3_all.setPlaceholderText(com3all())
+        self.com3_in.setPlaceholderText(com3stay())
+        self.com3_out.setPlaceholderText(com3out())
+        self.com3_remain.setPlaceholderText(com3remain())
 
 
-
-##### ----- Connect to Database
+# ----- Connect to Database
 def ConnectorMysql():
     mydb = mysql.connector.connect(
         host="localhost",
@@ -357,8 +400,10 @@ def ConnectorMysql():
     )
     print('Connect Database Successful')
     return mydb
-def dump(uname,lname,com):
-    print(uname,lname,com)
+
+
+def dump(uname, lname, com):
+    print(uname, lname, com)
     db = ConnectorMysql()
     cur = db.cursor()
     sql = f'SELECT * FROM batt WHERE lname="{lname}"'
@@ -367,9 +412,8 @@ def dump(uname,lname,com):
     cur.execute(sql)
     myresult = cur.fetchall()
 
-
     print(myresult)
-    if len(myresult) != 0 :
+    if len(myresult) != 0:
         print("send to inbatt fn")
         inbatt(lname)
     else:
@@ -387,6 +431,8 @@ def inbatt(lname):
     db.close()
 
 # Insert Done
+
+
 def insert_inbatt(lname, uname, com):
     db = ConnectorMysql()
     cur = db.cursor()
@@ -417,7 +463,9 @@ def com1all():
     print("com1_all success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com1stay():
     print("com1 stay")
@@ -427,7 +475,9 @@ def com1stay():
     print("com1_stay success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com1out():
     print("com1 out")
@@ -437,7 +487,9 @@ def com1out():
     print("com1_out success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com1remain():
     print("com1 remain")
@@ -447,7 +499,9 @@ def com1remain():
     print("com1_remain success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com2all():
     print("com2 all")
@@ -457,7 +511,9 @@ def com2all():
     print("com2_all success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com2stay():
     print("com2 stay")
@@ -467,7 +523,9 @@ def com2stay():
     print("com2_stay success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com2out():
     print("com2 out")
@@ -477,7 +535,9 @@ def com2out():
     print("com2_out success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com2remain():
     print("com2 remain")
@@ -487,7 +547,8 @@ def com2remain():
     print("com2_remain success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
 
 
 def com3all():
@@ -498,7 +559,8 @@ def com3all():
     print("com3_all success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
 
 
 def com3stay():
@@ -509,7 +571,8 @@ def com3stay():
     print("com3_stay success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
 
 
 def com3out():
@@ -520,7 +583,9 @@ def com3out():
     print("com3_out success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
+
 
 def com3remain():
     print("com3 remain")
@@ -530,7 +595,8 @@ def com3remain():
     print("com3_remain success!!")
     cur.execute(sql)
     myresult = cur.fetchall()
-    print(myresult)
+    x = str(myresult[0][0])
+    return x
 
 
 if __name__ == "__main__":
