@@ -273,11 +273,11 @@ class Ui_MainWindow(object):
                                           "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
                                           "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.out_lname.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                             "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                             "p, li { white-space: pre-wrap; }\n"
-                                             "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                             "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-                                             "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+                                          "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                          "p, li { white-space: pre-wrap; }\n"
+                                          "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                          "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+                                          "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.pushButton_2.setText(_translate("MainWindow", "OUT"))
         self.out_com.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -289,13 +289,19 @@ class Ui_MainWindow(object):
         self.label_20.setText(_translate("MainWindow", "ชื่อ"))
         self.label_22.setText(_translate("MainWindow", "กองร้อย"))
 
-
         # Insert
-        self.pushButton.clicked.connect(self.insertdata)
+        # self.pushButton.clicked.connect(self.insertdata)
+        self.pushButton.clicked.connect(self.dumpall)
+
+
 
         # UPDATE
         # self.pushButton.clicked.connect(self.backschool)
         self.pushButton_2.clicked.connect(self.outschool)
+
+        # self.com1_all.setText(self.com1all)
+
+
 
 
 
@@ -305,30 +311,42 @@ class Ui_MainWindow(object):
 # .............................................................
 # .............................................................
 # ...........................................................
+#### ----- Function GUI && Database
+# Insert Done
     def insertdata(self):
         print("Hello")
         uname = self.in_uname.toPlainText()
         lname = self.in_lname.toPlainText()
-        con = self.in_com.toPlainText()
-        print(uname + "" + lname + con)
-        insert_inbatt(uname, lname, con)
+        com = self.in_com.toPlainText()
+        print(uname + "" + lname + com)
+        insert_inbatt(uname, lname, com)
+
+    def dumpall(self):
+        print("dump")
+        uname = self.in_uname.toPlainText()
+        lname = self.in_lname.toPlainText()
+        com = self.in_com.toPlainText()
+        dump(uname,lname,com)
 
     def backschool(self):
         print("into")
         uname = self.in_uname.toPlainText()
         lname = self.in_lname.toPlainText()
-        con = self.in_com.toPlainText()
-        print(uname+""+lname+con)
-        inbatt(uname)
+        com = self.in_com.toPlainText()
+        print(uname+""+lname+com)
+        inbatt(lname)
 
     def outschool(self):
         print("out")
         uname = self.out_uname.toPlainText()
         lname = self.out_lname.toPlainText()
-        con = self.out_com.toPlainText()
-        print(uname+""+lname+con)
-        outbatt(uname)
+        com = self.out_com.toPlainText()
+        print(uname+""+lname+com)
+        outbatt(lname)
 
+
+
+##### ----- Connect to Database
 def ConnectorMysql():
     mydb = mysql.connector.connect(
         host="localhost",
@@ -339,35 +357,180 @@ def ConnectorMysql():
     )
     print('Connect Database Successful')
     return mydb
-
-
-def inbatt(uname):
+def dump(uname,lname,com):
+    print(uname,lname,com)
     db = ConnectorMysql()
     cur = db.cursor()
-    sql = f'UPDATE `status` SET `stay`=1,`outc`=0 WHERE uname="{uname}"'
+    sql = f'SELECT * FROM batt WHERE lname="{lname}"'
+    print("dump databasesuccess!!")
+    print(sql)
+    cur.execute(sql)
+    myresult = cur.fetchall()
+
+
+    print(myresult)
+    if len(myresult) != 0 :
+        print("send to inbatt fn")
+        inbatt(lname)
+    else:
+        print("send to insert fn")
+        insert_inbatt(lname, uname, com)
+
+
+def inbatt(lname):
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'UPDATE `batt` SET `stay`=1,`outc`=0 WHERE lname="{lname}"'
     print("Check in success!!")
     cur.execute(sql)
     db.commit()
     db.close()
 
-def insert_inbatt(uname,lname,con):
+# Insert Done
+def insert_inbatt(lname, uname, com):
     db = ConnectorMysql()
     cur = db.cursor()
-    sql = f'INSERT INTO `status`( `uname`, `lname`, `stay`, `outc`, `con`) VALUES ("{uname}","{lname}",1,0,{con})'
+    sql = f'INSERT INTO `batt`(`lname`, `uname`, `stay`, `outc`, `com`) VALUES ("{lname}","{uname}",1,0,{com})'
     print(sql)
     print("Insert into success!!")
     cur.execute(sql)
     db.commit()
     db.close()
-def outbatt(uname):
+
+
+def outbatt(lname):
     db = ConnectorMysql()
     cur = db.cursor()
-    sql = f'UPDATE `status` SET `stay`=0,`outc`=1 WHERE uname="{uname}"'
-    print("Check in success!!")
+    sql = f'UPDATE `batt` SET `stay`=0,`outc`=1 WHERE lname="{lname}"'
+    print(sql)
+    print("Check out success!!")
     cur.execute(sql)
     db.commit()
     db.close()
 
+
+def com1all():
+    print("com1 all")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay+outc) FROM `batt` WHERE com=1'
+    print("com1_all success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com1stay():
+    print("com1 stay")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay) FROM `batt` WHERE com=1'
+    print("com1_stay success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com1out():
+    print("com1 out")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(outc) FROM `batt` WHERE com=1'
+    print("com1_out success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com1remain():
+    print("com1 remain")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay) FROM `batt` WHERE com=1'
+    print("com1_remain success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com2all():
+    print("com2 all")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay+outc) FROM `batt` WHERE com=2'
+    print("com2_all success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com2stay():
+    print("com2 stay")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay) FROM `batt` WHERE com=2'
+    print("com2_stay success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com2out():
+    print("com2 out")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(outc) FROM `batt` WHERE com=2'
+    print("com2_out success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com2remain():
+    print("com2 remain")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay) FROM `batt` WHERE com=2'
+    print("com2_remain success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+
+def com3all():
+    print("com3 all")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay+outc) FROM `batt` WHERE com=3'
+    print("com3_all success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+
+def com3stay():
+    print("com3 stay")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay) FROM `batt` WHERE com=3'
+    print("com3_stay success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+
+def com3out():
+    print("com3 out")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(outc) FROM `batt` WHERE com=3'
+    print("com3_out success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
+
+def com3remain():
+    print("com3 remain")
+    db = ConnectorMysql()
+    cur = db.cursor()
+    sql = f'SELECT SUM(stay) FROM `batt` WHERE com=3'
+    print("com3_remain success!!")
+    cur.execute(sql)
+    myresult = cur.fetchall()
+    print(myresult)
 
 
 if __name__ == "__main__":
