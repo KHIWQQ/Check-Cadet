@@ -229,23 +229,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Check_Cadet"))
         self.label_26.setText(_translate("MainWindow", "กองพันที่ 1"))
-        self.in_lname.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                         "p, li { white-space: pre-wrap; }\n"
-                                         "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                         "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-                                         "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.in_com.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                       "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                       "p, li { white-space: pre-wrap; }\n"
-                                       "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                       "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-                                       "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.in_uname.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                         "p, li { white-space: pre-wrap; }\n"
-                                         "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                         "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.in_lname.setHtml(_translate("MainWindow", "รัตนพงศ์"))
+        self.in_com.setHtml(_translate("MainWindow", "2"))
+        self.in_uname.setHtml(_translate("MainWindow", "ธฤศชณม์"))
         self.pushButton.setText(_translate("MainWindow", "IN"))
         self.label_16.setText(_translate("MainWindow", "เข้ากองพัน"))
         self.label_17.setText(_translate("MainWindow", "ชื่อ"))
@@ -267,33 +253,21 @@ class Ui_MainWindow(object):
         self.label_14.setText(_translate("MainWindow", "นอกกองพัน"))
         self.label_15.setText(_translate("MainWindow", "คงเหลือ"))
         self.label_25.setText(_translate("MainWindow", "ออกกองพัน"))
-        self.out_uname.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                          "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                          "p, li { white-space: pre-wrap; }\n"
-                                          "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                          "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.out_lname.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                          "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                          "p, li { white-space: pre-wrap; }\n"
-                                          "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                          "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-                                          "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.out_uname.setHtml(_translate("MainWindow", "บัลลังก์"))
+        self.out_lname.setHtml(_translate("MainWindow", "ยวงใย"))
         self.pushButton_2.setText(_translate("MainWindow", "OUT"))
-        self.out_com.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                        "p, li { white-space: pre-wrap; }\n"
-                                        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                        "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-                                        "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.out_com.setHtml(_translate("MainWindow", "2"))
         self.label_21.setText(_translate("MainWindow", "นามสกุล"))
         self.label_20.setText(_translate("MainWindow", "ชื่อ"))
         self.label_22.setText(_translate("MainWindow", "กองร้อย"))
+
 
         # Insert
         self.pushButton.clicked.connect(self.dumpall)
 
         # UPDATE
         self.pushButton_2.clicked.connect(self.outschool)
+
 
         # Show data Company 1
         self.com1_all.setPlaceholderText(com1all())
@@ -314,15 +288,17 @@ class Ui_MainWindow(object):
         self.com3_remain.setPlaceholderText(com3remain())
 
 
+
+
+
 # .............................................................
 # .............................................................
 # .............................................................
 # .............................................................
 # ...........................................................
-# ----- Function GUI && Database
+#### ----- Function GUI && Database
 
 # Insert Done
-
     def insertdata(self):
         print("Hello")
         uname = self.in_uname.toPlainText()
@@ -336,7 +312,7 @@ class Ui_MainWindow(object):
         uname = self.in_uname.toPlainText()
         lname = self.in_lname.toPlainText()
         com = self.in_com.toPlainText()
-        dump(uname, lname, com)
+        dump(uname,lname,com)
         # Show data Company 1
         self.com1_all.setPlaceholderText(com1all())
         self.com1_in.setPlaceholderText(com1stay())
@@ -389,7 +365,8 @@ class Ui_MainWindow(object):
         self.com3_remain.setPlaceholderText(com3remain())
 
 
-# ----- Connect to Database
+
+##### ----- Connect to Database
 def ConnectorMysql():
     mydb = mysql.connector.connect(
         host="localhost",
@@ -400,10 +377,8 @@ def ConnectorMysql():
     )
     print('Connect Database Successful')
     return mydb
-
-
-def dump(uname, lname, com):
-    print(uname, lname, com)
+def dump(uname,lname,com):
+    print(uname,lname,com)
     db = ConnectorMysql()
     cur = db.cursor()
     sql = f'SELECT * FROM batt WHERE lname="{lname}"'
@@ -412,8 +387,9 @@ def dump(uname, lname, com):
     cur.execute(sql)
     myresult = cur.fetchall()
 
+
     print(myresult)
-    if len(myresult) != 0:
+    if len(myresult) != 0 :
         print("send to inbatt fn")
         inbatt(lname)
     else:
@@ -431,8 +407,6 @@ def inbatt(lname):
     db.close()
 
 # Insert Done
-
-
 def insert_inbatt(lname, uname, com):
     db = ConnectorMysql()
     cur = db.cursor()
@@ -465,6 +439,8 @@ def com1all():
     myresult = cur.fetchall()
     x = str(myresult[0][0])
     return x
+
+
 
 
 def com1stay():
