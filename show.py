@@ -203,8 +203,8 @@ def ConnectorMysql():
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        passwd="",
-        database="check_cadet",
+        passwd="12341234",
+        database="checkcadet",
         # auth_plugin='mysql_native_password'
     )
     print('Connect Database Successful')

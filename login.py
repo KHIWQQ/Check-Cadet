@@ -105,11 +105,11 @@ def ConnectorMysql():
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        passwd="",
+        passwd="12341234",
         database="cadet",
         # auth_plugin='mysql_native_password'
     )
-    # print('Connect Database Successful')
+    print('Connect Database Successful')
     return mydb
 
 def user(username,password,self):
