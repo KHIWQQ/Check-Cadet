@@ -2,6 +2,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+CREATE DATABASE cadet;
+
 CREATE TABLE `batt` (
   `lname` varchar(255) NOT NULL,
   `uname` varchar(255) DEFAULT NULL,
